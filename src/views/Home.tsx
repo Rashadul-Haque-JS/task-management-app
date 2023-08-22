@@ -9,7 +9,7 @@ const HomePage: React.FC = () => {
         <img
           src="/tasks.png" // Replace with the actual path to your image
           alt="Task Management"
-          className="mt-4 mx-auto xs:w-48 sm:w-48 md:w-auto max-w-sm"
+          className="mt-8 mx-auto xs:w-48 sm:w-48 md:w-auto max-w-sm"
         />
       </div>
     </div>

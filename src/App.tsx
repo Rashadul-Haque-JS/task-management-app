@@ -19,10 +19,10 @@ const App = () => {
     <div className="container mx-auto p-4">
       <BrowserRouter>
         <header className=" mb-4 w-full bg-sky-600 p-4">
-          <h1 className="text-2xl font-semibold text-center text-white ">
+          <h1 className="text-3xl font-semibold text-center text-white">
             Task Management App
           </h1>
-          <div className="flex justify-center items-center gap-2 uppercase text-xs mt-2">
+          <div className="flex justify-center items-center gap-2 uppercase text-sm mt-2">
             <Link to="/">Home</Link>
             <Link to="/tasks">Tasks</Link>
             <Link to="/create-task">Create-Tasks</Link>
