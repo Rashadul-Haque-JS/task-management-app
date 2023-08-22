@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import TaskItem, { Task } from "../components/TaskItem";
+import Notification from "../components/Notification";
 
 const TaskList = () => {
   const [tasksList, setTasks] = useState<Task[]>([]);
+  const [isNotify, setIsNotify] = useState<boolean>(false);
 
   useEffect(() => {
     // Retrieve tasks from localStorage
@@ -36,8 +38,9 @@ const TaskList = () => {
       )}
 
       {tasksList.map((task) => (
-        <TaskItem key={task.id} task={task} />
+        <TaskItem key={task.id} task={task} setIsNotify={setIsNotify}/>
       ))}
+      <Notification isNotify={isNotify} setIsNotify={setIsNotify}/>
     </div>
   );
 };
