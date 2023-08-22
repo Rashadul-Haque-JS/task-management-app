@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TaskList from "./views/TaskList";
 import TaskForm from "./views/TaskForm";
 import { Task } from "./components/TaskItem";
+import HomePage from "./views/Home";
 
 const App = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -24,12 +25,13 @@ const App = () => {
           <div className="flex justify-center items-center gap-2 uppercase text-xs mt-2">
             <Link to="/">Home</Link>
             <Link to="/tasks">Tasks</Link>
-            <Link to="/">Create-Tasks</Link>
+            <Link to="/create-task">Create-Tasks</Link>
           </div>
         </header>
         <Routes>
-          <Route path="/" element={<TaskForm onSubmit={handleAddTask}/>} />
+          <Route path="/" element={<HomePage/>}/>
           <Route path="/tasks" element={<TaskList />} />
+          <Route path="/create-task" element={<TaskForm onSubmit={handleAddTask}/>} />
         </Routes>
       </BrowserRouter>
     </div>
