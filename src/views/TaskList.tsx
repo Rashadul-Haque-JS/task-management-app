@@ -1,6 +1,7 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import TaskItem, { Task } from "../components/TaskItem";
 import Notification from "../components/Notification";
+import { Link } from "react-router-dom";
 
 const TaskList = () => {
   const [tasksList, setTasks] = useState<Task[]>([]);
@@ -25,22 +26,44 @@ const TaskList = () => {
     <div className="flex flex-wrap justify-center items-center gap-3">
       <h1 className="text-2xl font-semibold mb-4 text-center w-full shadow-sm p-4">
         Tasks List
-      </h1> 
+      </h1>
       {!tasksList.length && (
-        <div className="text-center flex flex-col justify-between items-center gap-16 mt-4">
-          <p className="text-gray-500">Your Task List Is Empty!</p>
+        <div className="text-center flex flex-col justify-center items-center gap-8 xs:gap-4 sm:gap-6 mt-4">
+          <div className="flex flex-col justify-center items-center gap-4">
+            <p className="text-gray-500">Your Task List Is Empty!</p>
+            
           <img
-            src="/empty.png" // Replace with the actual path to your image
+            src="/empty.png" 
             alt="Empty Task List"
-            className="mt-2 max-w-[400px] mx-auto"
+            className="mt-2 max-w-[400px] mx-auto xs:w-[200px] sm:w-[320px]"
           />
+          </div>
+          <Link
+              to="/create-task"
+              className="shadow-md rounded-full p-2 w-16 h-16 flex items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="w-10 h-10"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                />
+              </svg>
+            </Link>
         </div>
       )}
 
       {tasksList.map((task) => (
-        <TaskItem key={task.id} task={task} setIsNotify={setIsNotify}/>
+        <TaskItem key={task.id} task={task} setIsNotify={setIsNotify} />
       ))}
-      <Notification isNotify={isNotify} setIsNotify={setIsNotify}/>
+      <Notification isNotify={isNotify} setIsNotify={setIsNotify} />
     </div>
   );
 };
